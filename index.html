@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10101a">
+<title>YUGMA TICKETS | Events & Experiences</title>
+<style>
+:root{--bg:#0c0d14;--panel:#151723;--line:#292c3b;--text:#f7f7fb;--muted:#a9adbd;--accent:#a78bfa;--accent2:#6d5dfc}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}a{color:inherit}button,input{font:inherit}.wrap{width:min(1120px,92%);margin:auto}.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-bottom:1px solid var(--line)}.brand{font-weight:900;letter-spacing:1.5px;font-size:1.15rem}.brand span{color:var(--accent)}.navlinks{display:flex;gap:18px;color:var(--muted);font-size:.95rem}.hero{padding:54px 0 32px}.eyebrow{color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:2px;font-size:.78rem}.hero h1{font-size:clamp(2.3rem,7vw,4.7rem);line-height:1.03;margin:12px 0;max-width:760px}.hero p{color:var(--muted);max-width:620px}.searchrow{display:flex;gap:10px;margin-top:24px;max-width:650px}.searchrow input{flex:1;min-width:0;background:#171a27;border:1px solid var(--line);border-radius:12px;padding:14px;color:var(--text)}.btn{border:0;border-radius:12px;padding:13px 18px;background:var(--accent2);color:white;font-weight:750;cursor:pointer}.btn.secondary{background:#25283a;border:1px solid var(--line)}.sectionhead{display:flex;justify-content:space-between;align-items:end;gap:14px;margin:26px 0 16px}.sectionhead h2{margin:0;font-size:1.6rem}.muted{color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{border:1px solid var(--line);background:#151723;color:var(--muted);padding:9px 14px;border-radius:999px;cursor:pointer}.tab.active{background:var(--accent2);border-color:var(--accent2);color:white}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}.event{background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column}.art{height:145px;padding:18px;display:flex;align-items:end;background:radial-gradient(circle at 80% 20%,#8b5cf6,transparent 35%),linear-gradient(135deg,#20213b,#3b1d48)}.art span{font-size:2.2rem}.eventbody{padding:17px;display:flex;flex-direction:column;flex:1}.pill{display:inline-block;color:#d9ccff;background:#30264b;border-radius:999px;padding:4px 9px;font-size:.75rem;font-weight:700;align-self:flex-start}.event h3{margin:11px 0 6px;font-size:1.15rem}.event .details{color:var(--muted);font-size:.9rem;margin:0 0 14px}.price{font-weight:800;margin-top:auto;margin-bottom:12px}.event .btn{width:100%}.notice{margin:24px 0;background:#171a27;border:1px solid var(--line);padding:15px;border-radius:14px;color:var(--muted);font-size:.9rem}.footer{margin-top:50px;border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:.9rem}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modal.open{display:flex}.dialog{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:22px;width:min(480px,100%);max-height:90vh;overflow:auto}.dialog h2{margin-top:0}.field{display:grid;gap:6px;margin:12px 0}.field input{background:#0e1019;border:1px solid var(--line);border-radius:10px;padding:12px;color:white;width:100%}.ticket{border:1px dashed var(--accent);border-radius:12px;padding:15px;margin-top:14px;display:none}.ticket code{overflow-wrap:anywhere;color:#d9ccff}.close{float:right;background:transparent;color:white;border:0;font-size:1.5rem;cursor:pointer}@media(max-width:800px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{padding-top:38px}}@media(max-width:560px){.grid{grid-template-columns:1fr}.navlinks{gap:10px;font-size:.85rem}.searchrow{flex-direction:column}.searchrow .btn{width:100%}.sectionhead{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header class="wrap nav">
+  <a class="brand" href="#" aria-label="Yugma Tickets home" style="text-decoration:none">YUGMA <span>TICKETS</span></a>
+  <nav class="navlinks"><a href="#events">Events</a><a href="#how">How it works</a></nav>
+</header>
+<main class="wrap">
+  <section class="hero">
+    <div class="eyebrow">Your next experience starts here</div>
+    <h1>Find your people.<br><span style="color:var(--accent)">Feel the moment.</span></h1>
+    <p>Discover live music, comedy, festivals and local experiences with YUGMA TICKETS.</p>
+    <div class="searchrow"><input id="search" type="search" placeholder="Search events, artists or locations…" aria-label="Search events"><button class="btn" id="searchBtn">Search events</button></div>
+  </section>
+  <section id="events">
+    <div class="sectionhead"><div><div class="eyebrow">Discover</div><h2>Upcoming events</h2></div>
+      <div class="tabs" role="group" aria-label="Filter events"><button class="tab active" data-filter="all">All</button><button class="tab" data-filter="Music">Music</button><button class="tab" data-filter="Comedy">Comedy</button><button class="tab" data-filter="Festival">Festival</button></div>
+    </div>
+    <div class="grid" id="eventGrid" aria-live="polite"></div>
+    <p class="muted" id="empty" hidden>No events match that search. Try another keyword.</p>
+  </section>
+  <section id="how" class="notice"><strong style="color:white">How it works</strong><br>Browse an event, select “Book tickets,” and enter your details. This starter site demonstrates the booking interface. Orders are not yet stored and no real payment is collected until a secure backend and payment provider are connected.</section>
+</main>
+<footer class="wrap footer">© <span id="year"></span> YUGMA TICKETS · Events & experiences<br>For event listing or partnership enquiries, contact the YUGMA team.</footer>
+<div class="modal" id="bookingModal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+ <div class="dialog"><button class="close" id="closeModal" aria-label="Close">×</button><div class="eyebrow">Ticket request</div><h2 id="bookingTitle">Book tickets</h2><p id="selectedEvent" class="muted"></p>
+ <form id="bookingForm"><label class="field">Full name<input name="name" required autocomplete="name" maxlength="80" placeholder="Your full name"></label><label class="field">Email address<input name="email" type="email" required autocomplete="email" placeholder="you@example.com"></label><label class="field">Number of tickets<input name="qty" type="number" required min="1" max="10" value="1"></label><button class="btn" type="submit" style="width:100%">Create sample ticket</button></form>
+ <div class="ticket" id="ticketResult"><strong>Sample booking reference</strong><p id="ticketText"></p><code id="ticketCode"></code><p class="muted">This is a local demo reference only—not a paid ticket or entry-valid QR code.</p><button class="btn secondary" id="closeTicket">Done</button></div>
+ </div>
+</div>
+<script>
+const events=[
+{id:1,title:"Bezawada Beats",category:"Music",date:"Date to be announced",place:"Vijayawada, Andhra Pradesh",price:"Price to be announced",icon:"🎵",desc:"Live music, DJ sets and an energetic night."},
+{id:2,title:"Laugh Out Loud",category:"Comedy",date:"Date to be announced",place:"Vijayawada, Andhra Pradesh",price:"Price to be announced",icon:"🎤",desc:"A fun evening of stand-up and live comedy."},
+{id:3,title:"Local Culture Festival",category:"Festival",date:"Date to be announced",place:"Kondapalli, Andhra Pradesh",price:"Price to be announced",icon:"🎉",desc:"Celebrate local art, culture and community."}
+];
+let activeFilter="all", selected=null;
+const grid=document.getElementById("eventGrid"), search=document.getElementById("search"), empty=document.getElementById("empty");
+function render(){const term=search.value.trim().toLowerCase();const shown=events.filter(e=>(activeFilter==="all"||e.category===activeFilter)&&[e.title,e.category,e.place,e.desc].join(" ").toLowerCase().includes(term));grid.innerHTML="";shown.forEach(e=>{const card=document.createElement("article");card.className="event";card.innerHTML=`<div class="art"><span aria-hidden="true">${e.icon}</span></div><div class="eventbody"><span class="pill">${e.category}</span><h3></h3><p class="details"></p><p class="details"></p><p class="price"></p><button class="btn" type="button">Book tickets</button></div>`;card.querySelector("h3").textContent=e.title;card.querySelectorAll(".details")[0].textContent=e.desc;card.querySelectorAll(".details")[1].textContent=`${e.date} · ${e.place}`;card.querySelector(".price").textContent=e.price;card.querySelector("button").addEventListener("click",()=>openBooking(e));grid.appendChild(card)});empty.hidden=shown.length!==0}
+function openBooking(e){selected=e;document.getElementById("selectedEvent").textContent=`${e.title} · ${e.place}`;document.getElementById("bookingForm").hidden=false;document.getElementById("ticketResult").style.display="none";document.getElementById("bookingModal").classList.add("open")}
+function closeModal(){document.getElementById("bookingModal").classList.remove("open")}
+document.querySelectorAll("[data-filter]").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll("[data-filter]").forEach(x=>x.classList.toggle("active",x===b));activeFilter=b.dataset.filter;render()}));
+search.addEventListener("input",render);document.getElementById("searchBtn").addEventListener("click",render);document.getElementById("closeModal").addEventListener("click",closeModal);document.getElementById("closeTicket").addEventListener("click",closeModal);document.getElementById("bookingModal").addEventListener("click",e=>{if(e.target.id==="bookingModal")closeModal()});
+document.getElementById("bookingForm").addEventListener("submit",e=>{e.preventDefault();const data=new FormData(e.currentTarget);const ref="YGT-"+Math.random().toString(36).slice(2,8).toUpperCase();document.getElementById("ticketText").textContent=`${selected.title} · ${data.get("qty")} ticket(s) · ${data.get("name")}`;document.getElementById("ticketCode").textContent=ref;document.getElementById("bookingForm").hidden=true;document.getElementById("ticketResult").style.display="block"});
+document.getElementById("year").textContent=new Date().getFullYear();render();
+</script>
+</body>
+</html>
